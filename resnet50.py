@@ -182,14 +182,5 @@ class ResNet(nn.Module):
                 param.requires_grad = True
 
 
-def resnet50(pretrained=False, progress=True, num_classes=1000):
-    model = ResNet(Bottleneck, [3, 4, 6, 3])
-    # if pretrained:
-    #     state_dict = load_state_dict_from_url(model_urls['resnet50'], model_dir='./model_data',
-    #                                           progress=progress)
-    #     model.load_state_dict(state_dict)
 
-    if num_classes!=1000:
-        model.fc = nn.Linear(512 * model.block.expansion, num_classes)
-    return model
    
