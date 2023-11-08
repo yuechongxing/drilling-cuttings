@@ -173,18 +173,5 @@ class MobileNetV2(nn.Module):  # 定义MobileNetV2的前向通道
             param.requires_grad = True
 
 # MobileNetV2实例化
-def mobilenet_v2(pretrained=False, progress=True, num_classes=1000):
-    model = MobileNetV2()
-    # if pretrained:
-    #     state_dict = load_state_dict_from_url(model_urls['mobilenet_v2'], model_dir='./model_data',
-    #                                           progress=progress)
-    #     model.load_state_dict(state_dict)
 
-    if num_classes!=1000:
-      
-        model.classifier = nn.Sequential(            
-            nn.Dropout(),
-            nn.Linear(model.last_channel,num_classes)
-        )
-    return model
 
